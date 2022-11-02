@@ -16,6 +16,8 @@ build
 # misc
 .DS_Store
 *.pem
+.vscode/
+*.tgz
 
 # debug
 npm-debug.log*
