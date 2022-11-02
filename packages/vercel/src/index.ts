@@ -21,23 +21,23 @@ export function createBrowserSupabaseClient<
   SchemaName extends string & keyof Database = 'public' extends keyof Database
     ? 'public'
     : string & keyof Database
->({
-  cookieOptions
-}: {
-  cookieOptions?: CookieOptions;
-} = {}) {
-  if (
-    !process.env.VITE_SUPABASE_URL ||
-    !process.env.VITE_SUPABASE_ANON_KEY
-  ) {
+>(
+  supabaseUrl: string,
+  supabaseKey: string,
+  {
+    cookieOptions
+  }: {
+    cookieOptions?: CookieOptions;
+  } = {}) {
+  if (!supabaseUrl || !supabaseKey) {
     throw new Error(
-      'VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY env variables are required!'
+      'supabaseUrl and supabaseKey are required to create a Supabase client! Find these under `Settings` > `API` in your Supabase dashboard.'
     );
   }
 
   return _createBrowserSupabaseClient<Database, SchemaName>({
-    supabaseUrl: process.env.VITE_SUPABASE_URL,
-    supabaseKey: process.env.VITE_SUPABASE_ANON_KEY,
+    supabaseUrl,
+    supabaseKey,
     cookieOptions
   });
 }
@@ -48,26 +48,23 @@ export function createServerSupabaseClient<
     ? 'public'
     : string & keyof Database
 >(
-  context:
-    | { req: VercelRequest; res: VercelResponse  },
+  supabaseUrl: string,
+  supabaseKey: string,
+  context: { req: VercelRequest; res: VercelResponse },
   {
     cookieOptions
   }: {
     cookieOptions?: CookieOptions;
-  } = {}
-) {
-  if (
-    !process.env.VITE_SUPABASE_URL ||
-    !process.env.VITE_SUPABASE_ANON_KEY
-  ) {
+  } = {}) {
+  if (!supabaseUrl || !supabaseKey) {
     throw new Error(
-      'VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY env variables are required!'
+      'supabaseUrl and supabaseKey are required to create a Supabase client! Find these under `Settings` > `API` in your Supabase dashboard.'
     );
   }
 
   return _createServerSupabaseClient<Database, SchemaName>({
-    supabaseUrl: process.env.VITE_SUPABASE_URL,
-    supabaseKey: process.env.VITE_SUPABASE_ANON_KEY,
+    supabaseUrl,
+    supabaseKey,
     getRequestHeader: (key) => context.req.headers[key],
 
     getCookie(name) {

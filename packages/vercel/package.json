@@ -1,7 +1,7 @@
 {
   "name": "@tenur/auth-helpers-vercel",
   "version": "0.4.4",
-  "description": "A Supabase authentication helper that works with plain Vercel serverless functions. Faithfully adapted from @supabase/auth-helpers-nextjs",
+  "description": "A Supabase authentication helper that works with plain Vercel serverless functions. Faithfully ported from @supabase/auth-helpers-nextjs",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "publishConfig": {
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/supabase/auth-helpers.git"
+    "url": "git+https://github.com/tenurhq/auth-helpers.git"
   },
   "keywords": [
     "Supabase",
@@ -24,19 +24,19 @@
   "author": "Supabase",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/supabase/auth-helpers/issues"
+    "url": "https://github.com/tenurhq/auth-helpers/issues"
   },
-  "homepage": "https://github.com/supabase/auth-helpers/tree/main/packages/nextjs#readme",
+  "homepage": "https://github.com/tenurhq/auth-helpers/tree/main/packages/vercel#readme",
   "devDependencies": {
     "@supabase/supabase-js": "2.0.4",
     "config": "workspace:*",
-    "@vercel/node": "^2.5.26", 
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "rimraf": "^3.0.2",
     "tsconfig": "workspace:*",
     "tslib": "^2.3.1",
-    "tsup": "^5.12.5"
+    "tsup": "^5.12.5", 
+    "@vercel/node": "^2.5.26"
   },
   "dependencies": {
     "@supabase/auth-helpers-shared": "workspace:*"

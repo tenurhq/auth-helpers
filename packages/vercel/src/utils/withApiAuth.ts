@@ -37,6 +37,8 @@ export default function withApiAuth<
     ? 'public'
     : string & keyof Database
 >(
+  supabaseUrl: string,
+  supabaseKey: string,
   handler: AddParameters<
     VercelApiHandler,
     [SupabaseClient<Database, SchemaName>]
@@ -45,18 +47,15 @@ export default function withApiAuth<
 ) {
   return async (req: VercelRequest, res: VercelResponse): Promise<void> => {
     try {
-      if (
-        !process.env.VITE_SUPABASE_URL ||
-        !process.env.VITE_SUPABASE_ANON_KEY
-      ) {
-        throw new Error(
-          'VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY env variables are required!'
-        );
-      }
+      if (!supabaseUrl || !supabaseKey) {
+          throw new Error(
+            'supabaseUrl and supabaseKey are required to create a Supabase client! Find these under `Settings` > `API` in your Supabase dashboard.'
+          );
+        }
 
       const supabase = createServerSupabaseClient<Database, SchemaName>({
-        supabaseUrl: process.env.VITE_SUPABASE_URL,
-        supabaseKey: process.env.VITE_SUPABASE_ANON_KEY,
+        supabaseUrl,
+        supabaseKey,
         getCookie(name) {
           return req.cookies[name];
         },
