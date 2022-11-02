@@ -27,17 +27,17 @@ export function createBrowserSupabaseClient<
   cookieOptions?: CookieOptions;
 } = {}) {
   if (
-    !process.env.VERCEL_SUPABASE_URL ||
-    !process.env.VERCEL_SUPABASE_ANON_KEY
+    !process.env.VITE_SUPABASE_URL ||
+    !process.env.VITE_SUPABASE_ANON_KEY
   ) {
     throw new Error(
-      'VERCEL_SUPABASE_URL and VERCEL_SUPABASE_ANON_KEY env variables are required!'
+      'VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY env variables are required!'
     );
   }
 
   return _createBrowserSupabaseClient<Database, SchemaName>({
-    supabaseUrl: process.env.VERCEL_SUPABASE_URL,
-    supabaseKey: process.env.VERCEL_SUPABASE_ANON_KEY,
+    supabaseUrl: process.env.VITE_SUPABASE_URL,
+    supabaseKey: process.env.VITE_SUPABASE_ANON_KEY,
     cookieOptions
   });
 }
@@ -57,17 +57,17 @@ export function createServerSupabaseClient<
   } = {}
 ) {
   if (
-    !process.env.VERCEL_SUPABASE_URL ||
-    !process.env.VERCEL_SUPABASE_ANON_KEY
+    !process.env.VITE_SUPABASE_URL ||
+    !process.env.VITE_SUPABASE_ANON_KEY
   ) {
     throw new Error(
-      'VERCEL_SUPABASE_URL and VERCEL_SUPABASE_ANON_KEY env variables are required!'
+      'VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY env variables are required!'
     );
   }
 
   return _createServerSupabaseClient<Database, SchemaName>({
-    supabaseUrl: process.env.VERCEL_SUPABASE_URL,
-    supabaseKey: process.env.VERCEL_SUPABASE_ANON_KEY,
+    supabaseUrl: process.env.VITE_SUPABASE_URL,
+    supabaseKey: process.env.VITE_SUPABASE_ANON_KEY,
     getRequestHeader: (key) => context.req.headers[key],
 
     getCookie(name) {

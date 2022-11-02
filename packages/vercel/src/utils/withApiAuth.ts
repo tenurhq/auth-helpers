@@ -46,17 +46,17 @@ export default function withApiAuth<
   return async (req: VercelRequest, res: VercelResponse): Promise<void> => {
     try {
       if (
-        !process.env.VERCEL_SUPABASE_URL ||
-        !process.env.VERCEL_SUPABASE_ANON_KEY
+        !process.env.VITE_SUPABASE_URL ||
+        !process.env.VITE_SUPABASE_ANON_KEY
       ) {
         throw new Error(
-          'VERCEL_SUPABASE_URL and VERCEL_SUPABASE_ANON_KEY env variables are required!'
+          'VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY env variables are required!'
         );
       }
 
       const supabase = createServerSupabaseClient<Database, SchemaName>({
-        supabaseUrl: process.env.VERCEL_SUPABASE_URL,
-        supabaseKey: process.env.VERCEL_SUPABASE_ANON_KEY,
+        supabaseUrl: process.env.VITE_SUPABASE_URL,
+        supabaseKey: process.env.VITE_SUPABASE_ANON_KEY,
         getCookie(name) {
           return req.cookies[name];
         },
