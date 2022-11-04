@@ -29,14 +29,14 @@
   "homepage": "https://github.com/tenurhq/auth-helpers/tree/main/packages/vercel#readme",
   "devDependencies": {
     "@supabase/supabase-js": "2.0.4",
+    "@vercel/node": "^2.5.26", 
     "config": "workspace:*",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "rimraf": "^3.0.2",
     "tsconfig": "workspace:*",
     "tslib": "^2.3.1",
-    "tsup": "^5.12.5", 
-    "@vercel/node": "^2.5.26"
+    "tsup": "^5.12.5"
   },
   "dependencies": {
     "@supabase/auth-helpers-shared": "workspace:*"
