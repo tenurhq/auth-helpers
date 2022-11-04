@@ -1,5 +1,24 @@
 # @supabase/auth-helpers-nextjs
 
+## 0.5.1
+
+### Patch Changes
+
+- Updated dependencies [bee77c7]
+  - @supabase/auth-helpers-shared@0.2.3
+
+## 0.5.0
+
+### Minor Changes
+
+- d8f7446: chore: deprecate withApiAuth, withPageAuth, and withMiddlewareAuth.
+
+## 0.4.5
+
+### Patch Changes
+
+- d6c43ef: fix: "host" request header is not available. #358
+
 ## 0.4.4
 
 ### Patch Changes
