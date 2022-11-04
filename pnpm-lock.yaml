@@ -61,6 +61,7 @@ importers:
       '@remix-run/react': ^1.7.3
       '@remix-run/serve': ^1.7.3
       '@supabase/auth-helpers-remix': workspace:*
+      '@supabase/auth-ui-react': ^0.2.3
       '@types/react': ^18.0.15
       '@types/react-dom': ^18.0.6
       eslint: ^8.23.1
@@ -73,6 +74,7 @@ importers:
       '@remix-run/react': 1.7.3_biqbaboplfbrettd7655fr4n2y
       '@remix-run/serve': 1.7.3_biqbaboplfbrettd7655fr4n2y
       '@supabase/auth-helpers-remix': link:../../packages/remix
+      '@supabase/auth-ui-react': 0.2.3_biqbaboplfbrettd7655fr4n2y
       isbot: 3.6.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -2601,6 +2603,14 @@ packages:
       react: 17.0.2
     dev: false
 
+  /@stitches/react/1.2.8_react@18.2.0:
+    resolution: {integrity: sha512-9g9dWI4gsSVe8bNLlb+lMkBYsnIKCZTmvqvDG+Avnn69XfmHZKiaMrx7cgTaddq7aTPPmXiTsbFcUy0xgI4+wA==}
+    peerDependencies:
+      react: '>= 16.3.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /@supabase/auth-ui-react/0.1.8_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-G4/E7s5xC4NuDK+qR2NSgjvCbBnJtDssabpKJ5RWYf1ciR0xW2s7pMdqH9Dc9rLP44LDEj6HGwI4fSarhzAXSg==}
     peerDependencies:
@@ -2613,6 +2623,22 @@ packages:
       prop-types: 15.8.1
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: false
+
+  /@supabase/auth-ui-react/0.2.3_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-qKeJVrzMpaufTY/oH5SglY6pJrLELi5UYkVZML3/INNo2fiQektEvNiHrbBc7ttaeuVnDejoZn5gsSJ559kNlw==}
+    peerDependencies:
+      react: ^16.13.1 || ^17.0.1 || ^18.0.0
+      react-dom: ^16.13.1 || ^17.0.1 || ^18.0.0
+    dependencies:
+      '@stitches/core': 1.2.8
+      '@stitches/react': 1.2.8_react@18.2.0
+      lodash: 4.17.21
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     optionalDependencies:
       fsevents: 2.3.2
     dev: false
